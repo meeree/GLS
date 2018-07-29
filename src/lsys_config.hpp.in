@@ -1,0 +1,6 @@
+#pragma once
+
+#define DEBUG @DEBUG@
+#define VERBOSE @VERBOSE@
+#define SYM_MAX @SYM_MAX@
+#define PARAM_MAX @PARAM_MAX@

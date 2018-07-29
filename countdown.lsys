@@ -1,0 +1,2 @@
+PRODUCTIONS F(t) := F(t-1)
+AXIOM F(10)
