@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -ggdb   CMakeFiles/lsys.dir/src/graphviz_writer.cpp.o CMakeFiles/lsys.dir/src/tokenizer.cpp.o CMakeFiles/lsys.dir/src/lsys.cpp.o  -o lsys -rdynamic -lGLU -lGL -lGLEW -lglfw 
