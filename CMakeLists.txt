@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.6)
-project (LSys)
+project (GLS)
 
 set (DEBUG 1)
 set (VERBOSE 1)
@@ -11,6 +11,7 @@ configure_file (
     "${PROJECT_BINARY_DIR}/lsys_config.hpp"
   )
 
+set (CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
@@ -24,5 +25,5 @@ include_directories( "${PROJECT_BINARY_DIR}" "src/*.hpp" ${OPENGL_INCLUDE_DIRS} 
 file ( GLOB GLIB_SOURCE "src/*.cpp" ) 
  
 # add the  executable
-add_executable (lsys ${GLIB_SOURCE})
-target_link_libraries (lsys ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${GLM_LIBRARIES} glfw)
+add_executable (gls ${GLIB_SOURCE})
+target_link_libraries (gls ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${GLM_LIBRARIES} glfw)

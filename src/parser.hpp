@@ -107,7 +107,6 @@ struct Parser
                     if(tok_it->type == Token::Type::RBRACK) //Done
                         break;
 
-                    std::cout<<(tok_it->type_str()<<','<<tok_it->type_str()<<std::endl;
                     CHECK(tok_it->type == Token::Type::COMMA); //Still going. Haven't hit RBRACK. 
                     ++tok_it;
                 }
