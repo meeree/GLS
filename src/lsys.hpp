@@ -65,6 +65,31 @@ struct ProdNode final : public Node
     }
 };
 
+typedef float (*ParamHookFunc)(Symbol const&);
+
+//Used to create custom hooks to set a parameter in a production
+struct ParamHookNode final : public Node
+{
+    ParamHookFunc hook;
+
+    ParamHookNode (ParamHookFunc hook_) : hook{hook_} {}
+
+    virtual ReturnVal eval (SymInfo*& sym_it, float*& param_it, Symbol const& sym)
+    {
+        (void)sym_it; (void)param_it;
+        ASSERT(children.empty());
+        float flt_val{hook(sym)};
+        ReturnVal val;
+        val.FLOAT = flt_val;
+        return val;
+    }
+
+    virtual std::string serialize () const
+    {
+        return "ParamHookNode";
+    }
+};
+
 struct SetParamNode final : public Node 
 {
     virtual ReturnVal eval (SymInfo*& sym_it, float*& param_it, Symbol const& sym)

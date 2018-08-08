@@ -1,0 +1,6 @@
+PRODUCTIONS 
+    G(dist,ang) := Forward(3*dist)RotX(ang*2)G(dist*2+3, ang/2)
+    Forward(dist) := Forward({0})
+    RotX(ang) := RotX(ang)
+AXIOM
+    G(1.0,3.14)

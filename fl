@@ -1,6 +1,0 @@
-PRODUCTIONS 
-    Forward(dist) := Forward(dist)
-    RotX(ang) := RotX(ang)
-    G(dist,ang) := Forward(dist)RotX(ang*2)G(dist*2+3, ang/2)
-AXIOM
-    G(1.0,3.14)

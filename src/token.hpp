@@ -17,6 +17,8 @@ struct Token
         RBRACK,                 // ) 
         SQ_LBRACK,              // ] 
         SQ_RBRACK,              // [ 
+        LCURLY,                 // {
+        RCURLY,                 // }
         QMARK,                  // ? 
         COLON,                  // :
         EOL,                    // one of \n, ;, or ;\n

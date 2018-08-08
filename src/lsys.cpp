@@ -2,6 +2,11 @@
 #include "parser.hpp"
 #include "serialize.hpp"
 
+float param_hook0 (Symbol const& sym)
+{
+    return log(sym.params[0]); 
+}
+
 int main (int argc, char** argv)
 {
     if(argc <= 1) 
@@ -18,7 +23,7 @@ int main (int argc, char** argv)
         lsys.param_bufs[i] = (float*)std::malloc(PARAM_MAX * sizeof(float));
     }
 
-    Parser p(lsys);
+    Parser p(lsys, {param_hook0});
     p.Parse(argv[1]);
 
     lsys.SortProds();
@@ -27,13 +32,13 @@ int main (int argc, char** argv)
 	Serialize::WriteProductions(gviz, lsys);
 	gviz.finishAndWrite2PDF("../gviz.pdf");
 
-   // lsys.PrintCur();
+    lsys.PrintCur();
 
-   // for(int i = 0; i < 20; ++i)
-   // {
-   //     lsys.Run();
-   //     lsys.PrintCur();
-   // }
+    for(int i = 0; i < 20; ++i)
+    {
+        lsys.Run();
+        lsys.PrintCur();
+    }
 
     for(int i = 0; i < 2; ++i)
     {

@@ -10,6 +10,8 @@ std::vector<std::string> const Token::sp_token_lookup[Token::Type::SPECIAL_COUNT
     {")"                                                    },
     {"["                                                    },
     {"]"                                                    },
+    {"{"                                                    },
+    {"}"                                                    },
     {"?"                                                    },
     {":"                                                    },
     {"\n", ";", ";\n", "END OF FILE"                        },
@@ -30,6 +32,8 @@ std::string const Token::dbg_type_enum2str[Token::Type::COUNT+1]
     "Rbrack",
     "Square lbrack",
     "Square rbrack",
+    "Curly lbrack",
+    "Curly rback",
     "Question mark",
     "Colon",
     "EOL",
@@ -65,7 +69,7 @@ bool Tokenizer::Tokenize (std::string const& fl_name, std::vector<Token>& tokens
     for(; fl.get(head); ++it)
     {
         //Pass whitespace
-        if(head == ' ')
+        if(head == ' ' || head == '\t')
             continue;
 
         //Reset parsing info per token parsed
